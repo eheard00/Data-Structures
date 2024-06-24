@@ -1,0 +1,45 @@
+/*******************************************************************************
+    PRG Libraries
+*******************************************************************************/
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include "functions.h"
+
+using namespace std;
+
+class linked_list {
+    private:
+        vector<int> list;
+        int head;
+        int tail;
+        int num_items;
+    
+    public:
+        linked_list();
+            
+        void push_front(int value);
+        void push_back(int value);
+        void popfront();
+        void popback();
+        int front();
+        int back();
+        bool empty();
+};
+
+int main()
+{
+ return 0;
+}
+
+/*******************************************************************************
+    Function definitions
+*******************************************************************************/
+#include "functions.h"
+#include <iostream>
+
+using namespace std;
+
+/*******************************************************************************
+    Function Declarations
+*******************************************************************************/
