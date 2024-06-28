@@ -98,7 +98,7 @@ class Linked_List { //Creating a object called linked_list
                 delete tail;
                 head->next = nullptr;
                 tail = head;
-            } else {                        /
+            } else {
                 for(size_t i = 0; i < num_items - 2; i++) {     //loop to stop 2 before and then assign that next (last) to loop
                     loop = loop->next;
                 }
