@@ -46,7 +46,7 @@ class Linked_List { //Creating a object called linked_list
             
             num_items++;    //Increase the size of the list
         }
-//Pop Front
+//Pop Front removes the first value and returns it
         int pop_front() {
             if(num_items == 0) {    //Check if empty
                 return 0;
@@ -80,7 +80,7 @@ class Linked_List { //Creating a object called linked_list
             }
             num_items++;    //Increase the size of the list
         }
-//Pop Back
+//Pop Back removes the last value and returns it
         int pop_back() {
             if(num_items == 0) {    //Check if empty
                 return 0;
@@ -150,20 +150,21 @@ class Linked_List { //Creating a object called linked_list
         }
 //Remove
         bool remove(size_t index) { 
-            if(index > num_items || num_items == 0) {   //Special case for index large than size and empty vector
+            if(index >= num_items || num_items == 0) {   //Special case for index large than size and empty vector
                 return 0;
             }
             
+            Node* current = head;
+            Node* last = nullptr;
+            
             if(index == 0) {     //Case for head node
-                Node* headCase = head;
                 head = head->next;
-                delete headCase;
+                delete current;
                 num_items--;
                 return 1;
             }
             
-            Node* current = head;
-            Node* last = current;
+
             
             for(size_t i = 0; i < index; i++) {     //Loop till correct index
                 last = current;
@@ -171,6 +172,11 @@ class Linked_List { //Creating a object called linked_list
             }
             
             last->next = current->next;     //Reassign the previous node to point to next code from current location
+            
+            if(current == tail) { //case for removing last index
+                tail = last;
+            }
+            
             delete current;                 //Delete current pointer and decrement num_items
             num_items--;
             
@@ -196,14 +202,27 @@ class Linked_List { //Creating a object called linked_list
 int main()
 {
     Linked_List list1;
-    list1.push_front(1);
-    list1.push_front(2);
+    cout << "Is it empty?" << endl;
+    cout << list1.empty() << endl;
     list1.push_front(3);
+    list1.push_front(2);
+    list1.push_front(1);
     list1.push_back(4);
     list1.push_back(5);
     list1.push_back(6);
+    cout << "Is it empty?" << endl;
+    cout << list1.empty() << endl;
+    cout << "Structure looks like: 1 2 3 4 5 6" << endl;
+    cout << "Front value: " << list1.front() << endl;
+    cout << "Back value: " << list1.back() << endl;
     
-    cout<< list1.pop_back();
-    cout<< list1.pop_front();
-    cout<< list1.find(7);
+    cout << "Insert 7 at end" << endl;
+    list1.insert(7,7);
+    cout << list1.back() << endl;
+    
+    cout << "Value 4 is found at index " << list1.find(4) << endl;
+    
+    list1.remove(6);
+    cout << list1.back() << endl;
+    
 }
