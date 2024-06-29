@@ -66,15 +66,18 @@ int main()
 {
     Stack stack1;
     
+    cout << "Is stack empty: " << stack1.empty() << endl;
+    cout << "Stack size: " << stack1.size() << endl;
     stack1.push(1);
     stack1.push(2);
     stack1.push(3);
     stack1.push(4);
     stack1.push(5);
-    cout << stack1.empty();
-    cout << stack1.size();
+    cout << "Stack now looks like:" << endl << "    5" << endl << "    4" << endl << "    3" << endl << "    2" << endl << "    1" << endl;
+    cout << "Is stack empty: " << stack1.empty() << endl;
+    cout << "Stack size: " << stack1.size() << endl;
+    cout << "Top value: " << stack1.top() << endl << "Popping top value" << endl << "New top value: ";
     stack1.pop();
-    cout << stack1.top();
-    stack1.push(5);
-    cout << stack1.average();
+    cout << stack1.top() << endl;
+    cout << "Stack value average: " << stack1.average() << endl;
 }
